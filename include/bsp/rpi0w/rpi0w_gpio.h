@@ -14,10 +14,10 @@
 
 // CONSTANTS
 
-#define BASE_ADDRESS_GPIO 				0x20000000
+#define BASE_ADDRESS_GPIO 					0x20000000
 #define BASE_ADDRESS_ITR_CONTROL		0x3F00B200
 
-#define RPI0W_GPIO_INPUT 		0
+#define RPI0W_GPIO_INPUT 			0
 #define RPI0W_GPIO_OUTPUT 		1
 
 #define RPI0W_GPIO_PULL_DOWN 	1
@@ -30,8 +30,8 @@
 typedef struct __attribute__((packed)) rpi0w_gpio_registers {
 
 	/* GPIO Function Select registers RW
-	   Chaque GPFSEL reg gère 10 pins
-	   GPFSEL0 gère les pins GPIO0 à GPIO9
+	   Chaque GPFSEL reg gï¿½re 10 pins
+	   GPFSEL0 gï¿½re les pins GPIO0 ï¿½ GPIO9
 	   Chaque pin utilise 3 bits :
 		0b000 : input
 		0b001 : output
@@ -46,68 +46,81 @@ typedef struct __attribute__((packed)) rpi0w_gpio_registers {
 	*/
 	uint32_t GPFSEL[6];
 
-	RESERVED32;
+	uint32_t reserved1;
+	//RESERVED32;
 
 	// GPIO Pin Output Set registers W
 	// Bit field : Ecrire 1 pour setter la pin correspondante (0 pas d'effet)
 	uint32_t GPSET[2];
 
-	RESERVED32;
+	uint32_t reserved2;
+	//RESERVED32;
 
 	// GPIO Pin Output Clear registers W
 	// Bit field : Ecrire 1 pour clear la pin correspondante (0 pas d'effet)
 	uint32_t GPCLR[2];
 
-	RESERVED32;
+	uint32_t reserved3;
+	//RESERVED32;
 
 	// GPIO Pin Level registers R
 	// Bit field : 1 la pin est high, 0 si elle est low
 	uint32_t GPLEV[2];
 
-	RESERVED32;
+	uint32_t reserved4;
+	//RESERVED32;
 
 	// GPIO Pin Event Detect Status registers RW
 	uint32_t GPEDS[2];
 
-	RESERVED32;
+	uint32_t reserved5;
+	//RESERVED32;
 
 	// GPIO Pin Rising Edge Detect Enable registers RW
 	uint32_t GPREN[2];
 
-	RESERVED32;
+	uint32_t reserved6;
+	//RESERVED32;
 
 	// GPIO Pin Falling Edge Detect Enable registers RW
 	uint32_t GPFEN[2];
 
-	RESERVED32;
+	uint32_t reserved7;
+	//RESERVED32;
 
 	// GPIO Pin High Detect Enable registers RW
 	uint32_t GPHEN[2];
 
-	RESERVED32;
+	uint32_t reserved8;
+	//RESERVED32;
 
 	// GPIO Pin Low Detect Enable registers RW
 	uint32_t GPLEN[2];
 
-	RESERVED32;
+	uint32_t reserved9;
+	//RESERVED32;
 
 	// GPIO Pin Async. Rising Edge Detect registers RW
 	uint32_t GPAREN[2];
 
-	RESERVED32;
+	uint32_t reserved10;
+	//RESERVED32;
 
 	// GPIO Pin Async. Falling Edge Detect registers RW
 	uint32_t GPAFEN[2];
 
-	RESERVED32;
+	uint32_t reserved11;
+	//RESERVED32;
 
 	// GPIO Pin Pull-up/down Enable RW
 	uint32_t GPPUD;
 	// GPIO Pin Pull-up/down Enable Clock registers RW
 	uint32_t GPPUDCLK[2];
 
-	RESERVED32;
-	RESERVED32;
+	uint32_t reserved12;
+	//RESERVED32;
+	uint32_t reserved13;
+	//RESERVED32;
 }rpi0w_gpio_registers_t;
 
 

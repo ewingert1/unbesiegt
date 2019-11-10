@@ -37,10 +37,10 @@
 void rpi0w_set_pin_behaviour(void *pininfo, void *result){
 	rpi0w_gpio_registers_t* gpio_regs = (rpi0w_gpio_registers_t*)BASE_ADDRESS_GPIO;
 	pin_info_t *pin_info = (pin_info_t*)pininfo;
-	gpio_regs->GPFSEL[pin_info->pin_number/10] &= ~(0b111<<(3*(pin_info->pin_number%10)));
+	gpio_regs->GPFSEL[(pin_info->pin_number)/10] &= ~(0b111<<(3*(pin_info->pin_number%10)));
 
 	if(pin_info->pin_behaviour == RPI0W_GPIO_OUTPUT)
-		gpio_regs->GPFSEL[pin_info->pin_number/10] |= pin_info->pin_behaviour<<(3*(pin_info->pin_number%10));
+		gpio_regs->GPFSEL[(pin_info->pin_number)/10] |= (pin_info->pin_behaviour)<<(3*(pin_info->pin_number%10));
 }
 
 
@@ -110,4 +110,3 @@ void rpi0w_set_pin_level(void *pininfo, void *result)
 //	    gpio_add[offsetGPPUDCLK+(gpio_n/32)] &= (~(1<<(gpio_n%32)));//We clear the bit of the pin
 //	    gpio_add[offsetGPPUD] = gpio_add[offsetGPPUD]&mask;
 //}
-

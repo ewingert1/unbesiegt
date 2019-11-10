@@ -5,13 +5,13 @@
 vectors:
 	/* Vectors */
 	b _start		//Reset
-	b .				//Undefined Instruction
-	b .				//Software Interrupt
-	b .				//Prefetch Abort
-	b .				//Data Abort
-	b .				//4-byte gap RESERVED
-	b .				//IRQ
-	b .				//FIQ
+	b .					//Undefined Instruction
+	b .					//Software Interrupt
+	b .					//Prefetch Abort
+	b .					//Data Abort
+	b .					//4-byte gap RESERVED
+	b .					//IRQ
+	b .					//FIQ
 
 
 
